@@ -3,7 +3,6 @@ package vn.hienht.hienht_example_code.controller;
 import org.springframework.web.bind.annotation.*;
 import vn.hienht.hienht_example_code.dto.request.UserRequestDTO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
