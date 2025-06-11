@@ -11,28 +11,29 @@ public class UserController {
 
     @PostMapping("/")
     public String addUser(@RequestBody UserRequestDTO user) {
-        return "Đã thêm";
+        return "Đã thêm " + user.getFirstName() + " " + user.getLastName();
     }
 
     @PutMapping("/{userId}")
     public String updateUser(@PathVariable int userId, @RequestBody UserRequestDTO user) {
         System.out.printf("Request update userId : " + userId);
-        return "Đã sửa";
+        return "Đã sửa " + userId + " " + user.getFirstName() + " " + user.getLastName();
     }
 
     @PatchMapping("/{userId}")
     public String changeStatus(@PathVariable int userId, @RequestParam(required = false) boolean status) {
-        System.out.printf("change status : " + status);
+        System.out.printf(userId + "change status : " + status);
         return "Change status";
     }
 
     @DeleteMapping("/{userId}")
     public String deleteUser(@PathVariable int userId) {
-        return "Đã xóa";
+        return "Đã xóa " + userId + " " + true;
     }
 
     @GetMapping("/{userId}")
     public UserRequestDTO findUserById(@PathVariable int userId) {
+        System.out.printf("Request findUserById : " + userId);
         return new UserRequestDTO("hoang", "hien", "0123123", "hienht@mail");
     }
 
